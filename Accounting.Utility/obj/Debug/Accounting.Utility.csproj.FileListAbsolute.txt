@@ -1,0 +1,6 @@
+E:\Accounting_Pro\Accounting.Utility\bin\Debug\Accounting.Utility.dll
+E:\Accounting_Pro\Accounting.Utility\bin\Debug\Accounting.Utility.pdb
+E:\Accounting_Pro\Accounting.Utility\obj\Debug\Accounting.Utility.csproj.CoreCompileInputs.cache
+E:\Accounting_Pro\Accounting.Utility\obj\Debug\Accounting.Utility.dll
+E:\Accounting_Pro\Accounting.Utility\obj\Debug\Accounting.Utility.pdb
+E:\Accounting_Pro\Accounting.Utility\obj\Debug\Accounting.Utility.csproj.AssemblyReference.cache
