@@ -1,4 +1,5 @@
-﻿using Accounting.DataLayer.Repository;
+﻿using Accounting.Business;
+using Accounting.DataLayer.Repository;
 using Accounting.DataLayer.Services;
 using Accounting.Utility;
 using Accounting.ViewModels;
@@ -66,14 +67,26 @@ namespace Accounting_Pro
             foreach (var accounting in res)
             {
                 string customerName = db.GetName_fromID(accounting.CustomerID);
-                dg_Customer.Rows.Add(accounting.ID, customerName, accounting.Amount,accounting.Time.ToShamsi(),accounting.Description);
+                dg_Customer.Rows.Add(accounting.ID, customerName, accounting.Amount.totoman(),accounting.Time.ToShamsi(),accounting.Description);
             }
         }
-
-        private void frmReports_Load(object sender, EventArgs e)
+        void report()
         {
+            ViewModel_Report rb =computation.report();
+            lbl_pay.Text = rb.Pay;
+            lbl_recive.Text = rb.Received;
+            lbl_number.Text = rb.Number;
+        }
+            private void frmReports_Load(object sender, EventArgs e)
+        {
+            report();
             List<ViewModel_GetName> list = new List<ViewModel_GetName>();
+            
+            
+            
+            
             list.Add(new ViewModel_GetName()
+            
             {
                 ID = 0,
                 FULLNAME = "انتخاب کنید"
@@ -86,12 +99,15 @@ namespace Accounting_Pro
 
             if (TypeID == 1)
             {
-                this.Text = "دریافتی ها";
+                this.Text = "درآمد ها";
+                db.GetAccounting(TypeID);
+                
             }
             else
             {
 
-                this.Text = "پرداختی ها";
+                this.Text = "هزینه ها";
+                
 
             }
         }
@@ -130,6 +146,7 @@ namespace Accounting_Pro
                 int id = int.Parse(dg_Customer.CurrentRow.Cells[0].Value.ToString());
                 frm_transaction frm_Transaction = new frm_transaction();
                 frm_Transaction.ID = id;
+                frm_Transaction.typeid = TypeID;
                 if (frm_Transaction.ShowDialog() == DialogResult.OK)
                 {
                     filters();
@@ -174,5 +191,7 @@ namespace Accounting_Pro
             print.Print();
             
         }
+
+        
     }
 }

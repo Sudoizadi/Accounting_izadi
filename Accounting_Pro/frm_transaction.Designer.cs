@@ -35,23 +35,27 @@ namespace Accounting_Pro
             this.label5 = new System.Windows.Forms.Label();
             this.txt_searcher = new System.Windows.Forms.TextBox();
             this.dg_person = new System.Windows.Forms.DataGridView();
+            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_Description = new System.Windows.Forms.Label();
             this.rb_Received = new System.Windows.Forms.RadioButton();
             this.rb_pay = new System.Windows.Forms.RadioButton();
             this.txt_pay = new System.Windows.Forms.NumericUpDown();
             this.txt_Description = new System.Windows.Forms.TextBox();
             this.btn_submit = new System.Windows.Forms.Button();
             this.txt_person = new System.Windows.Forms.TextBox();
+            this.dg_product = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_product = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.rangeValidator1 = new ValidationComponents.RangeValidator(this.components);
-            this.requiredFieldValidator1 = new ValidationComponents.RequiredFieldValidator(this.components);
+            this.rvalid = new ValidationComponents.RequiredFieldValidator(this.components);
             this.requiredFieldValidator2 = new ValidationComponents.RequiredFieldValidator(this.components);
-            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_person)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_product)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -104,6 +108,14 @@ namespace Accounting_Pro
             this.dg_person.Size = new System.Drawing.Size(223, 327);
             this.dg_person.TabIndex = 0;
             this.dg_person.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_person_CellClick);
+            this.dg_person.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_person_CellContentClick);
+            // 
+            // fullname
+            // 
+            this.fullname.DataPropertyName = "FULLNAME";
+            this.fullname.HeaderText = "نام";
+            this.fullname.Name = "fullname";
+            this.fullname.ReadOnly = true;
             // 
             // label1
             // 
@@ -125,25 +137,16 @@ namespace Accounting_Pro
             this.label2.TabIndex = 2;
             this.label2.Text = "نوع تراکنش:";
             // 
-            // label3
+            // lbl_Description
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(638, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "مبلغ:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(637, 133);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "شرح:";
+            this.lbl_Description.AutoSize = true;
+            this.lbl_Description.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Description.Location = new System.Drawing.Point(601, 134);
+            this.lbl_Description.Name = "lbl_Description";
+            this.lbl_Description.Size = new System.Drawing.Size(39, 16);
+            this.lbl_Description.TabIndex = 5;
+            this.lbl_Description.Text = "شرح:";
+            this.lbl_Description.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rb_Received
             // 
@@ -155,6 +158,7 @@ namespace Accounting_Pro
             this.rb_Received.TabStop = true;
             this.rb_Received.Text = "دریافتی";
             this.rb_Received.UseVisualStyleBackColor = true;
+            this.rb_Received.CheckedChanged += new System.EventHandler(this.rb_Received_CheckedChanged);
             // 
             // rb_pay
             // 
@@ -166,6 +170,7 @@ namespace Accounting_Pro
             this.rb_pay.TabStop = true;
             this.rb_pay.Text = "پرداختی";
             this.rb_pay.UseVisualStyleBackColor = true;
+            this.rb_pay.CheckedChanged += new System.EventHandler(this.rb_pay_CheckedChanged);
             // 
             // txt_pay
             // 
@@ -205,6 +210,51 @@ namespace Accounting_Pro
             this.txt_person.Size = new System.Drawing.Size(314, 20);
             this.txt_person.TabIndex = 11;
             // 
+            // dg_product
+            // 
+            this.dg_product.AllowUserToAddRows = false;
+            this.dg_product.AllowUserToDeleteRows = false;
+            this.dg_product.AllowUserToResizeColumns = false;
+            this.dg_product.AllowUserToResizeRows = false;
+            this.dg_product.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dg_product.Location = new System.Drawing.Point(253, 208);
+            this.dg_product.Name = "dg_product";
+            this.dg_product.ReadOnly = true;
+            this.dg_product.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dg_product.RowHeadersVisible = false;
+            this.dg_product.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dg_product.Size = new System.Drawing.Size(314, 151);
+            this.dg_product.TabIndex = 12;
+            this.dg_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_product_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "NameProducts";
+            this.Column1.HeaderText = "نام محصول";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // txt_product
+            // 
+            this.txt_product.Location = new System.Drawing.Point(253, 147);
+            this.txt_product.Name = "txt_product";
+            this.txt_product.ReadOnly = true;
+            this.txt_product.Size = new System.Drawing.Size(314, 20);
+            this.txt_product.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(601, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "مبلغ:";
+            // 
             // rangeValidator1
             // 
             this.rangeValidator1.CancelFocusChangeWhenInvalid = false;
@@ -215,12 +265,12 @@ namespace Accounting_Pro
             this.rangeValidator1.MinimumValue = "1";
             this.rangeValidator1.Type = ValidationComponents.ValidationDataType.Integer;
             // 
-            // requiredFieldValidator1
+            // rvalid
             // 
-            this.requiredFieldValidator1.CancelFocusChangeWhenInvalid = false;
-            this.requiredFieldValidator1.ControlToValidate = this.txt_Description;
-            this.requiredFieldValidator1.ErrorMessage = "لطفا شرح  دریافت | پرداخت را وارد کنید";
-            this.requiredFieldValidator1.Icon = ((System.Drawing.Icon)(resources.GetObject("requiredFieldValidator1.Icon")));
+            this.rvalid.CancelFocusChangeWhenInvalid = false;
+            this.rvalid.ControlToValidate = this.txt_Description;
+            this.rvalid.ErrorMessage = "لطفا شرح  دریافت | پرداخت را وارد کنید";
+            this.rvalid.Icon = ((System.Drawing.Icon)(resources.GetObject("rvalid.Icon")));
             // 
             // requiredFieldValidator2
             // 
@@ -229,27 +279,22 @@ namespace Accounting_Pro
             this.requiredFieldValidator2.ErrorMessage = "لطفا از نام طرف حساب را وارد کنید";
             this.requiredFieldValidator2.Icon = ((System.Drawing.Icon)(resources.GetObject("requiredFieldValidator2.Icon")));
             // 
-            // fullname
-            // 
-            this.fullname.DataPropertyName = "FULLNAME";
-            this.fullname.HeaderText = "نام";
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
-            // 
             // frm_transaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(686, 403);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txt_product);
+            this.Controls.Add(this.dg_product);
             this.Controls.Add(this.txt_person);
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.txt_Description);
             this.Controls.Add(this.txt_pay);
             this.Controls.Add(this.rb_pay);
             this.Controls.Add(this.rb_Received);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbl_Description);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -264,6 +309,7 @@ namespace Accounting_Pro
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_person)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_pay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_product)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,9 +321,8 @@ namespace Accounting_Pro
         private System.Windows.Forms.DataGridView dg_person;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_searcher;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_Description;
         private System.Windows.Forms.RadioButton rb_Received;
         private System.Windows.Forms.RadioButton rb_pay;
         private System.Windows.Forms.NumericUpDown txt_pay;
@@ -286,8 +331,12 @@ namespace Accounting_Pro
         private System.Windows.Forms.TextBox txt_person;
         private System.Windows.Forms.Label label5;
         private ValidationComponents.RangeValidator rangeValidator1;
-        private ValidationComponents.RequiredFieldValidator requiredFieldValidator1;
+        private ValidationComponents.RequiredFieldValidator rvalid;
         private ValidationComponents.RequiredFieldValidator requiredFieldValidator2;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
+        private System.Windows.Forms.DataGridView dg_product;
+        private System.Windows.Forms.TextBox txt_product;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

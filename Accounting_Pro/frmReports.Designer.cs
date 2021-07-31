@@ -43,15 +43,23 @@ namespace Accounting_Pro
             this.cb_Customer = new System.Windows.Forms.ComboBox();
             this.btn_filters = new System.Windows.Forms.Button();
             this.dg_Customer = new System.Windows.Forms.DataGridView();
-            this.print = new Stimulsoft.Report.StiReport();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.print = new Stimulsoft.Report.StiReport();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_pay = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_recive = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_number = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Customer)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -64,7 +72,7 @@ namespace Accounting_Pro
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip1.Size = new System.Drawing.Size(584, 62);
+            this.toolStrip1.Size = new System.Drawing.Size(585, 62);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -216,29 +224,8 @@ namespace Accounting_Pro
             this.dg_Customer.ReadOnly = true;
             this.dg_Customer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dg_Customer.RowHeadersVisible = false;
-            this.dg_Customer.Size = new System.Drawing.Size(560, 191);
+            this.dg_Customer.Size = new System.Drawing.Size(560, 162);
             this.dg_Customer.TabIndex = 3;
-            // 
-            // print
-            // 
-            this.print.CookieContainer = null;
-            this.print.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
-            this.print.ReferencedAssemblies = new string[] {
-        "System.Dll",
-        "System.Drawing.Dll",
-        "System.Windows.Forms.Dll",
-        "System.Data.Dll",
-        "System.Xml.Dll",
-        "Stimulsoft.Controls.Dll",
-        "Stimulsoft.Base.Dll",
-        "Stimulsoft.Report.Dll"};
-            this.print.ReportAlias = "Report";
-            this.print.ReportGuid = "391aa9d0e54d4716814e2b3043a42127";
-            this.print.ReportName = "Report";
-            this.print.ReportSource = null;
-            this.print.ReportUnit = Stimulsoft.Report.StiReportUnitType.Inches;
-            this.print.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
-            this.print.UseProgressInThread = false;
             // 
             // Column1
             // 
@@ -276,16 +263,119 @@ namespace Accounting_Pro
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
             // 
+            // print
+            // 
+            this.print.CookieContainer = null;
+            this.print.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
+            this.print.ReferencedAssemblies = new string[] {
+        "System.Dll",
+        "System.Drawing.Dll",
+        "System.Windows.Forms.Dll",
+        "System.Data.Dll",
+        "System.Xml.Dll",
+        "Stimulsoft.Controls.Dll",
+        "Stimulsoft.Base.Dll",
+        "Stimulsoft.Report.Dll"};
+            this.print.ReportAlias = "Report";
+            this.print.ReportGuid = "391aa9d0e54d4716814e2b3043a42127";
+            this.print.ReportName = "Report";
+            this.print.ReportSource = null;
+            this.print.ReportUnit = Stimulsoft.Report.StiReportUnitType.Inches;
+            this.print.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
+            this.print.UseProgressInThread = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(496, 27);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(58, 14);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "خرید کل:";
+            // 
+            // lbl_pay
+            // 
+            this.lbl_pay.AutoSize = true;
+            this.lbl_pay.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pay.Location = new System.Drawing.Point(422, 27);
+            this.lbl_pay.Name = "lbl_pay";
+            this.lbl_pay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_pay.Size = new System.Drawing.Size(0, 14);
+            this.lbl_pay.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(325, 27);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(69, 14);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "فروش کل:";
+            // 
+            // lbl_recive
+            // 
+            this.lbl_recive.AutoSize = true;
+            this.lbl_recive.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_recive.Location = new System.Drawing.Point(234, 27);
+            this.lbl_recive.Name = "lbl_recive";
+            this.lbl_recive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_recive.Size = new System.Drawing.Size(0, 14);
+            this.lbl_recive.TabIndex = 7;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lbl_number);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lbl_recive);
+            this.groupBox2.Controls.Add(this.lbl_pay);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 329);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(560, 52);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "آمار  کل";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(75, 27);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(127, 14);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "تعداد اجناس در انبار:";
+            // 
+            // lbl_number
+            // 
+            this.lbl_number.AutoSize = true;
+            this.lbl_number.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_number.Location = new System.Drawing.Point(25, 27);
+            this.lbl_number.Name = "lbl_number";
+            this.lbl_number.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_number.Size = new System.Drawing.Size(0, 14);
+            this.lbl_number.TabIndex = 8;
+            // 
             // frmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(585, 393);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dg_Customer);
             this.Controls.Add(this.btn_filters);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "frmReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmReports_Load);
@@ -294,6 +384,8 @@ namespace Accounting_Pro
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Customer)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +413,12 @@ namespace Accounting_Pro
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_pay;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_recive;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_number;
     }
 }

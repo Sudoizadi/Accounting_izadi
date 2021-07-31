@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Accounting.DataLayer.Services;
 using Accounting.DataLayer.Repository;
 using Accounting.Utility;
+using Accounting.Business;
+using Accounting.ViewModels;
 
 namespace Accounting_Pro
 {
@@ -31,6 +33,7 @@ namespace Accounting_Pro
             {
                 lbl_date.Text = DateTime.Now.ToShamsi();
                 lbl_timer.Text = DateTime.Now.ToString("HH:mm:ss");
+                report();
                 this.Show();
             }
             else
@@ -39,6 +42,15 @@ namespace Accounting_Pro
                 Application.Exit();
             }
 
+
+        }
+        void report()
+        {
+        ViewModel_Report rb = computation.report();
+            lbl_pay.Text = rb.Pay;
+            lbl_recive.Text = rb.Received;
+            lbl_number.Text = rb.Number;
+            lbl_Remaining.Text = rb.Remaining;
 
         }
 
@@ -51,7 +63,13 @@ namespace Accounting_Pro
         private void btn_new_transaction_Click(object sender, EventArgs e)
         {
             frm_transaction frm = new frm_transaction();
-            frm.ShowDialog();
+            
+            if (frm.ShowDialog()==DialogResult.OK)
+            {
+                report();
+
+
+            }
         }
 
         private void btn_pay_Click(object sender, EventArgs e)
@@ -85,6 +103,18 @@ namespace Accounting_Pro
             login login = new login();
             login.edit = true;
             login.ShowDialog();
+        }
+      
+
+        private void btn_Store_Click_1(object sender, EventArgs e)
+        {
+            frmStore frm = new frmStore();
+            frm.ShowDialog();
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            report();
         }
     }
 }
